@@ -37,8 +37,6 @@ Resultado --------------------------
 
 [5.6,4.3,3.5,2.2,2.1,2.05,1.5]
 
-**Salida**
-
 ------------------------------------
 ```
 
@@ -125,6 +123,8 @@ Resultado --------------------------
 
 **Entrada**
 - n = -1
+
+**Salida**
 
 ```
 No se puede generar una lista de menos que 0 elementos
