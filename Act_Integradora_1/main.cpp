@@ -7,7 +7,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
-#include<tuple>
+#include <tuple>
 using namespace std;
 
 string getText(string path){
@@ -95,32 +95,54 @@ void KMPAlgorithm(string substring, string text)
 }
 
 void Manacher(string text){
-    int R = -1;
-    int P = -1;
-    
+    int n = text.length();
+    int R = -1; 
+    int P = 0;
+    bool pair = false;
+    vector<char> textArr;
+    if(n%2 == 0) pair = true;
 
-    vector<int> pali_count(text.size() +2);
-   
-    for(int i = 0; i <= text.size(); i++){
-        if( i <= R){
-            pali_count[i] = min(pali_count[2*P - i], R-1);
-        }
-        else{
-            pali_count[i] = 0;
-        }
-        while(text[i-pali_count[i]-1] == text[i+pali_count[i]+1]){
-            pali_count[i] = pali_count[i] +1;
-        }
-        if(i + pali_count[i] > R){
-            R = i + pali_count[i];
-            P = i;
-        }
+    for(int i = 0; i < text.length();i++){
+        textArr.push_back('#');
+        n++;
+        textArr.push_back(text[i]);
     }
 
-    int longest_pali = *max_element(pali_count.begin(), pali_count.end());
-    int lpIndex = max_element(pali_count.begin(), pali_count.end()) - pali_count.begin();
+    textArr.push_back('#');
+    n++;
+
+    vector<int> A (n,-1);
     
-    cout<<lpIndex - longest_pali<<" "<<lpIndex + longest_pali<<endl;
+    for(int i = 0; i < n-1;i++){
+        if(i <= R){
+            A[i] = max(0,min(A[2*P - i], R-i));
+        }else{
+            A[i] = 0;
+        }
+
+        while  (textArr[i-A[i]-1] == textArr[i+A[i]+1]){
+            A[i] = A[i]+1;
+        }
+
+        if(i+A[i] > R) R = i+A[i];
+
+        if(A[i] > A[P]) P = i;
+
+    }
+    
+    int longest_pali = *max_element(A.begin(), A.end());
+    int lpIndex = max_element(A.begin(), A.end()) - A.begin();
+
+    int index_low = lpIndex - longest_pali;
+    int index_high = lpIndex + longest_pali;
+    
+    int indexL_half = index_low /2;
+    int indexH_half = index_high /2;
+
+    index_low = index_low - indexL_half;
+    index_high = index_high - indexH_half - 1;
+    
+    cout<<index_low<<" "<<index_high<<endl;
 }
 
 void longestSubstring(string str1, string str2){
@@ -182,8 +204,6 @@ int main() {
 
   longestSubstring(tr1,tr2);
   cout<<"------------------------------------------------------------------"<<endl;
-  //LC substring parte 3
-
 
   return 0;
 }
