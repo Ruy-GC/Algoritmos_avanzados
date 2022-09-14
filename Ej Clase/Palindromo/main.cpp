@@ -12,17 +12,14 @@ int longestPalindrome(string string){
     if(n%2 == 0) pair = true;
 
     for(int i = 0; i < string.length();i++){
-        if(pair){
-            text.push_back('#');
-            n++;
-        }
+        text.push_back('#');
+        n++;
         text.push_back(string[i]);
     }
 
-    if(pair){
-        text.push_back('#');
-        n++;
-    } 
+    text.push_back('#');
+    n++;
+
 
     vector<int> A (n,-1);
     
@@ -41,9 +38,8 @@ int longestPalindrome(string string){
 
         if(A[i] > A[P]) P = i;
     }
-
-    if (pair) return (A[P]);
-    return (A[P]*2+1);
+    
+    return A[P];
 }
 
 
@@ -51,7 +47,7 @@ int main(){
 
     
     cout<<"Longest palindrome: "
-        <<longestPalindrome("vanitalavalatinaa")
+        <<longestPalindrome("santiago22ababbabaabcbabbcbaabadfdb121092983afedabd17171")
         <<"\n";
     return 0;
 }

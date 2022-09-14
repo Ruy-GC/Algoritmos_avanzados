@@ -167,9 +167,7 @@ void longestSubstring(string str1, string str2){
     }
 
     cout<<"transmision 1"<<endl;
-    cout<<get<1>(longestIndex) - longest<<" "<< get<1>(longestIndex) <<endl;
-    cout<<"transmision 2"<<endl;
-    cout<<get<0>(longestIndex) - longest<<" "<< get<0>(longestIndex) <<endl;
+    cout<<get<1>(longestIndex) +1 - longest<<" "<< get<1>(longestIndex) + 1 <<endl;
 
 }
 
