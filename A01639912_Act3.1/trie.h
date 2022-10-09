@@ -76,6 +76,23 @@ class Trie{
                     }            
                 }
             }
+            cout<<"\n";
+        }
+
+        bool searchWord(string word){
+            Node * current = this->root;
+
+            for(int i = 0; i < word.length(); i++){
+                char c = tolower(word[i]);
+                if(current->children[c-'a'] == NULL){
+                    return false;
+                }
+                current = current->children[c - 'a'];
+            }
+
+            if(!current->terminal && current != NULL) return false;
+            
+            return true;
         }
 };
 

@@ -10,5 +10,8 @@ int main(){
     trie.insert("computadora");
     trie.insert("computar");
     trie.DFS();
+    cout<<trie.searchWord("Hoja")<<endl;
+    cout<<trie.searchWord("compu")<<endl;
+
     return 0;
 }
