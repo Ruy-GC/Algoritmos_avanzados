@@ -9,5 +9,6 @@ int main(){
     trie.insert("hola");
     trie.insert("computadora");
     trie.insert("computar");
+    trie.DFS();
     return 0;
 }

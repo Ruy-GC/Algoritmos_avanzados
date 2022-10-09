@@ -1,5 +1,8 @@
 #include <iostream>
-#include <map>
+#include <cctype>
+#include <vector>
+#include <stack>
+#include <algorithm>
 
 using namespace std;
 
@@ -32,9 +35,10 @@ class Trie{
 
         void insert(string key){
             Node *current = this->root;
-
             for(int i = 0; i < key.length(); i++){
-                char c = key[i];
+                
+                char c = tolower(key[i]);
+
                 if(current->children[c-'a'] == NULL){
                     Node *new_node = new Node(c);
                     current->children[c-'a'] = new_node;
@@ -44,6 +48,34 @@ class Trie{
             }
 
             current->terminal = true;
+        }
+
+        void DFS(){
+            vector <Node *> visited;
+            stack <Node *> dfsStack;
+
+            Node *current = this->root;
+
+            visited.push_back(current);
+            dfsStack.push(current);
+
+            while (!dfsStack.empty()){
+                Node * pop_node = dfsStack.top();
+                current = pop_node;
+                cout<<pop_node->c<<"->";
+                dfsStack.pop();
+
+                for (Node *item: current->children){
+                    if(item != NULL){
+                        vector<Node *>::iterator it;
+                        it = find(visited.begin(),visited.end(),item);
+                        if(it == visited.end()){
+                            visited.push_back(item);
+                            dfsStack.push(item);
+                        }
+                    }            
+                }
+            }
         }
 };
 
