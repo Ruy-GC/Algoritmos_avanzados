@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    TrieNode *trie;
-    trie->insertTrie(trie,"hola");
+    Trie trie;
+    trie.insert("hola");
     return 0;
 }
