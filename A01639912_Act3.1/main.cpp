@@ -1,3 +1,7 @@
+// Implementación de Tries
+// Ruy Guzmán Camacho A01639912
+// 10/10/2022
+
 #include "trie.h"
 #include <iostream>
 #include <string>

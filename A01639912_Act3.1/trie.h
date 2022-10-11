@@ -33,12 +33,15 @@ class Trie{
             this->root = new_node;
         }
 
+        // inserta palabras al trie
+        // O(n) complejidad de tiempo
+        // O(n*m) espacio
         void insert(string key){
             Node *current = this->root;
             for(int i = 0; i < key.length(); i++){
                 
                 char c = tolower(key[i]);
-
+                
                 if(current->children[c-'a'] == NULL){
                     Node *new_node = new Node(c);
                     current->children[c-'a'] = new_node;
@@ -50,6 +53,9 @@ class Trie{
             current->terminal = true;
         }
 
+        // mostrar recorrido del grafo mediante dfs
+        // O(v) complejidad de tiempo
+        // O(v*e) espacio
         void DFS(){
             vector <Node *> visited;
             stack <Node *> dfsStack;
@@ -79,6 +85,9 @@ class Trie{
             cout<<"\n";
         }
 
+        // busqueda de palabras en el trie
+        // O(n) complejidad de tiempo
+        // O(1) espacio
         bool searchWord(string word){
             Node * current = this->root;
 
