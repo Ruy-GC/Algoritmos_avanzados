@@ -51,18 +51,6 @@ class Graph{
 
                 }
             }
-            /*results[root] = 0;
-
-            for (int i = 0; i < this->matrizAdj.size()-1;i++){
-                int minD = minDistance(results,visited);
-                visited[minD] = true;
-
-                for (int j = 0; j < this->matrizAdj.size(); j++){
-                    if(!visited[j] && this->matrizAdj[minD][j] && results[j] != INT_MAX && results[minD] + this->matrizAdj[minD][j] < results[j]){
-                        results[j] = results[minD] + this->matrizAdj[minD][j];
-                    }
-                }  
-            }*/
 
             printSolution(results);    
 
