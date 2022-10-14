@@ -39,7 +39,19 @@ class Graph{
                     if(visited[i] == true)
                         continue;
                     
+                    
+                    /*int min = INT_MAX; 
+                    int minIdx = 0;
+                    for(int v = 0; v < this->vertices;v++){
+                        if(visited[v] == false && results[v] <= min && results[v] != -1){
+                            min = results[v];
+                            minIdx = v;
+                        }
+                    }*/
+
                     int newDist = results[index] + this->matrizAdj[root][i];
+                    if (this->matrizAdj[root][i] == -1 && newDist != -1)
+                        newDist++;
 
                     if (newDist > -1){
                         if (newDist < results[i]){
