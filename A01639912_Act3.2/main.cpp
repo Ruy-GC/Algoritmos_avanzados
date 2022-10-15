@@ -1,3 +1,10 @@
+/*
+Actividad 3.2 Implementación de "Dijkstra and Floyd"
+Ruy Guzmán Camacho A01639912
+Luis David lópez Magaña A00344656
+14/10/2022
+
+*/
 #include <iostream>
 #include <vector>
 #include "graph.h"
@@ -28,24 +35,27 @@ int main(int argc, char *argv[])
         {
             int num = 0;
             cin >> num;
+            while(num < -1){
+                cout<<"No ingrese negativos (solo -1 en caso de que no haya conexión)\n";
+                cin >> num;
+            }
             row.push_back(num);
         }
         matrizAdj.push_back(row);
-    }*/
-
-    matrizAdj = {
-                {0,2,-1,3},
-                {-1,0,1,5},
-                {2,3,0,-1},
-                {3,-1,4,0}
-                }; 
+    }
+    cout<<"\n";
 
     printMatrix(matrizAdj);
-
     Graph grafo(matrizAdj);
 
-    grafo.dijkstra(0);
-    grafo.floyd(n);
+    cout<<"\nDijkstra :"<<endl;
+    
+    for(int i = 0; i < n; i++){
+        grafo.dijkstra(i);
+    }
+    
+    cout<<"\n";
 
+    grafo.floyd(n);
     return 0;
 }
