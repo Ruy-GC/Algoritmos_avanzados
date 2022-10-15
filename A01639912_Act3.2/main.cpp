@@ -31,7 +31,14 @@ int main(int argc, char *argv[])
             row.push_back(num);
         }
         matrizAdj.push_back(row);
-    }
+    }*/
+
+    matrizAdj = {
+                {0,2,-1,3},
+                {-1,0,1,5},
+                {2,3,0,-1},
+                {3,-1,4,0}
+                }; 
 
     printMatrix(matrizAdj);
 
