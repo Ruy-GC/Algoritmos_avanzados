@@ -1,3 +1,8 @@
+/*
+Actividad 3.3 Implementación de knapsack problem
+Ruy Guzmán Camacho A01639912
+18/10/2022 
+*/
 #include <iostream>
 #include <vector>
 using namespace std;
