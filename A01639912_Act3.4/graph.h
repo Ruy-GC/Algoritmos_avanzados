@@ -25,7 +25,7 @@ class Graph{
         }
 
         //Función que asigna un color a los nodos de un grafo no dirigido
-        //O(V^2+E) V siendo vertices y E edges o aristas
+        //O(V*(V+C)) V siendo vertices y C la cantidad de colores
         //Recibe el parametro maxColors para definir la cantidad máxima de colores posibles
         void coloring(int maxColors){
             if(this->vertices == 0){
