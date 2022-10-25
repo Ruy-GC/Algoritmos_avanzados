@@ -39,10 +39,11 @@ int main(){
     cout<<"\n";
 
     printMatrix(matrizAdj,n);
+    
+    //Construye un grafo con una amtriz de adyacencia
     Graph grafo(matrizAdj);
 
-    grafo.coloring();
-    grafo.printColors();
-
+    //La función recibe la cantidad máxima de colores a utilizar
+    grafo.coloring(2);
     return 0;
 }
