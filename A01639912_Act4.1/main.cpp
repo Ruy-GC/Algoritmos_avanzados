@@ -31,7 +31,7 @@ int crossProd(Point p0, Point p1, Point p2){
 }
 
 //Functiosn that finds the orientation of the triplet
-//O()
+//O(1)
 string orientation(Point p0, Point p1, Point p2){
     // p1, p2 and p3 are points: [x, y]
     int crossProductResult = crossProd(p0, p1, p2);
@@ -115,7 +115,7 @@ int main(){
         results.push_back(areIntersecting(segments[j], segments[j+1]));
         j += 2;
     }
-
+    cout<<"\n---------------"<<endl;
     for(int i = 0; i < results.size(); i++){
         cout << results[i] << endl;
     }
